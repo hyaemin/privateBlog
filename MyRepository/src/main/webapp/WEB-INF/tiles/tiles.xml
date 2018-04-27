@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+  <!--  <definition name="layout" template="/WEB-INF/views/tiles/layout.jsp">
+      <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"/>layout.jsp파일에 name 참고! 여긴 고정문서
+      <put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"/>
+   </definition>
+   
+   <definition name="layout2" template="/WEB-INF/views/tiles/layout2.jsp">
+      <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"/>layout.jsp파일에 name 참고! 여긴 고정문서
+      <put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"/>
+   </definition>
+ -->
+   <definition name="boardLayout" template="/WEB-INF/views/tiles/layout.jsp">
+      <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"/><!-- layout.jsp파일에 name 참고! 여긴 고정문서 -->
+      <put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"/>
+      <!-- <put-attribute name="sideBar" value="/WEB-INF/views/tiles/sideBar.jsp"/>여긴 고정문서! -->
+   </definition>
+   
+   <!-- content는 고정시킬수 없어서 따로 재정의! 패턴을 만들기 위해서 -->
+   <!-- 이때 name은 controller에서 return해주는 setViewName에 따라 달라짐 -->
+   <!-- controller에서 setViewName이 */* 이면 layout을 적용해라 -->
+   <!-- <definition extends="layout" name="*/*">name이 user이어도 가능 *(폴더)/*(파일명)는 어떤게 와도 상관이 없다.
+      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+      <put-attribute name="content" value="/WEB-INF/views/{2}.jsp"/>=> 2가 바로 파일명!
+   </definition> 주석처리! 왜냐면 boardLayout.jsp 를 새로 구분해야해서-->
+   
+   <!-- controller에서 setViewName이 user/* 이면 layout 적용해라 -->
+   <!-- <definition extends="layout" name="user/*">
+      <put-attribute name="content" value="/WEB-INF/views/user/{1}.jsp"/>
+   </definition>
+    -->
+    
+    <!-- controller에서 setViewName이 user/~로 나올때 같은 user 폴더이지만 다른 템플릿을 적용하는 방법 -->
+      <!--  <definition extends="layout" name="user/*_a">
+         <put-attribute name="content" value="/WEB-INF/views/user/{1}.jsp"/>1은 *의미! memberJoin_b
+      </definition>
+      
+      <definition extends="layout2" name="user/*_b">
+         <put-attribute name="content" value="/WEB-INF/views/user/{1}.jsp"/>
+      </definition> -->
+    
+   <!-- controller에서 setViewName이 board/* 이면 layout 적용해라 -->
+   <definition extends="boardLayout" name="*">
+      <put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+   </definition>
+   
+   
+   
+</tiles-definitions>
