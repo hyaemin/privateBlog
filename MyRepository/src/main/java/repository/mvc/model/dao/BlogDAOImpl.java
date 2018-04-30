@@ -1,14 +1,20 @@
 package repository.mvc.model.dao;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class BlogDAOImpl implements BlogDAO {
 
-	@Override
-	public void login() {
-		// TODO Auto-generated method stub
+	@Autowired
+	private SqlSession sqlSession;
 
+	@Override
+	public String login() {
+		// TODO Auto-generated method stub
+		
+		return sqlSession.selectOne("WriteMapper.test");
 	}
 
 	@Override

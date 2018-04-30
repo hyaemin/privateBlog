@@ -1,7 +1,7 @@
 package repository.mvc.service;
 
 public interface BlogService {
-	public void login();
+	public String login();
 
 	public void insertPost();
 

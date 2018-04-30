@@ -1,11 +1,18 @@
 package repository.mvc.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import repository.mvc.model.dao.BlogDAO;
+
 public class BlogServiceImpl implements BlogService {
 
+	@Autowired
+	private BlogDAO dao;
+	
 	@Override
-	public void login() {
+	public String login() {
 		// TODO Auto-generated method stub
-
+		return dao.login();
 	}
 
 	@Override

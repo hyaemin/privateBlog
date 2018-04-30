@@ -43,8 +43,8 @@
       </definition> -->
     
    <!-- controller에서 setViewName이 board/* 이면 layout 적용해라 -->
-   <definition extends="boardLayout" name="*">
-      <put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+   <definition extends="boardLayout" name="ex/*">
+      <put-attribute name="content" value="/WEB-INF/views/ex/{1}.jsp"/>
    </definition>
    
    

@@ -1,7 +1,7 @@
 package repository.mvc.model.dao;
 
 public interface BlogDAO {
-	public void login();
+	public String login();
 
 	public void insertPost();
 
